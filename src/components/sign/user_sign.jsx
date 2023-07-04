@@ -1,7 +1,32 @@
 import "./user_sign.css";
 import gosu from "../../assets/고수.png";
+import { useState } from "react";
 
 function UserSign() {
+  const [signData, setSignData] = useState({
+    name: "",
+    phone_number: "",
+    gender: "",
+    age: 0,
+    address: "",
+  });
+
+  const onChange = (e) => {
+    const { value, name } = e.target;
+    setSignData({
+      ...signData,
+      [name]: value,
+    });
+  };
+
+  const onGenderChange = (e) => {
+    const { value } = e.target;
+    setSignData({
+      ...signData,
+      gender: value,
+    });
+  };
+
   return (
     <div className="Sign">
       <img src={gosu} className="logo" />
@@ -9,28 +34,62 @@ function UserSign() {
       <p>
         <b>이름</b>
       </p>
-      <input type="text" placeholder="이름을 입력해주세요"></input>
+      <input
+        name="name"
+        onChange={onChange}
+        type="text"
+        placeholder="이름을 입력해주세요"
+      />
       <p className="font-grap">
         <b>전화번호</b>
       </p>
-      <input type="text" placeholder="전화번호를 입력해주세요"></input>
+      <input
+        name="phone_number"
+        onChange={onChange}
+        type="text"
+        placeholder="전화번호를 입력해주세요"
+      />
       <p className="font-grap">
         <b>성별</b>
       </p>
       <div className="gander-radio">
-        <input className="radio-width" type="radio" name="성별" checked />
-        <p className="ps">여자</p>
-        <input className="radio-width" type="radio" name="성별" />
-        <p className="ps">남자</p>
+        <input
+          className="radio-width"
+          type="radio"
+          name="gender"
+          value="여성"
+          checked={signData.gender === "여성"}
+          onChange={onGenderChange}
+        />
+        <p className="ps">여성</p>
+        <input
+          className="radio-width"
+          type="radio"
+          name="gender"
+          value="남성"
+          checked={signData.gender === "남성"}
+          onChange={onGenderChange}
+        />
+        <p className="ps">남성</p>
       </div>
       <p className="age">
         <b>나이</b>
       </p>
-      <input type="number" placeholder="나이를 입력해주세요"></input>
+      <input
+        name="age"
+        onChange={onChange}
+        type="number"
+        placeholder="나이를 입력해주세요"
+      />
       <p className="adress">
         <b>주소</b>
       </p>
-      <input type="text" placeholder="주소를 입력해주세요"></input>
+      <input
+        name="address"
+        onChange={onChange}
+        type="text"
+        placeholder="주소를 입력해주세요"
+      />
       <div className="CU">
         <div className="cancel-btn">취소</div>
         <div className="user-Sign-btn">회원가입</div>
