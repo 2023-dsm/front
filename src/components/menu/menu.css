@@ -1,0 +1,20 @@
+p {
+  margin: 10px 0px;
+  font-size: 16px;
+}
+
+.ah {
+  margin: 0px 30px;
+}
+
+.paper {
+  padding: 7px 0px 7px 10px;
+  border: 1px solid #008000;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.resume {
+  margin-bottom: 20px;
+}
