@@ -4,12 +4,19 @@
     box-sizing: border-box;
 } */
 
-
 .Sign {
-  margin-top: 70px;
+  margin-top: 40px;
   margin-left: 60px;
   margin-right: 60px;
   margin-bottom: 0;
+
+  > p {
+    margin-bottom: 0;
+  }
+
+  > b {
+    margin: 0;
+  }
 }
 .logo {
   width: 35px;
@@ -38,16 +45,19 @@ input {
 }
 
 .ps {
-  padding-top: 12px;
-  width: 30px;
+  width: 40px;
+  margin-right: 5px;
 }
 
 .gander-radio {
   display: flex;
-  width: 100px;
+  align-items: center;
+  width: 120px;
+  height: 30px;
 }
 
 .radio-width {
+  margin: 0px 5px 0px 0px;
   width: 20px;
   cursor: pointer;
 }
@@ -56,13 +66,17 @@ input[type="radio"] {
 }
 
 .adress {
-  margin-top: 100px;
+  margin-top: 25px;
+}
+
+.age {
+  margin-top: 25px;
 }
 
 .CU {
   margin-top: 38px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .cancel-btn {

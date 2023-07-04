@@ -1,7 +1,27 @@
 import "./user-login.css";
 import gosu from "../../../src/assets/고수.png";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
+  const [loginData, setLoginData] = useState({
+    name: "",
+    phone_number: "",
+  });
+
+  const onChange = (e) => {
+    const { value, name } = e.target;
+    setLoginData({
+      ...loginData,
+      [name]: value,
+    });
+  };
+
+  const onClick = () => {
+    navigate("/main");
+  };
+
   return (
     <div className="App">
       <div className="Logo">
@@ -10,16 +30,26 @@ function Login() {
       <div className="login">LOGIN</div>
       <div className="name">
         <p>이름</p>
-        <input type="text" placeholder="이름을 입력하세요" />
+        <input
+          name="name"
+          onChange={onChange}
+          type="text"
+          placeholder="이름을 입력하세요"
+        />
       </div>
       <div className="tel">
         <p>전화번호</p>
-        <input type="tel" placeholder="전화번호를 입력해주세요"></input>
+        <input
+          name="phone_number"
+          onChange={onChange}
+          type="tel"
+          placeholder="전화번호를 입력해주세요"
+        />
       </div>
       <div className="login-button">
-        <from>
-          <a href=""><button type="submit">로그인</button></a>
-        </from>
+        <button onClick={onClick} type="submit">
+          로그인
+        </button>
       </div>
     </div>
   );
