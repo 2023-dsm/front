@@ -1,12 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import MenuPage from "../../../pages/menu";
-import Company from "../../../assets/tab/company.png";
-import grayCompany from "../../../assets/tab/grayCompany.png";
-import People from "../../../assets/tab/people.png";
-import grayPeople from "../../../assets/tab/grayPeople.png";
-import Menu from "../../../assets/tab/menu.png";
-import grayMenu from "../../../assets/tab/grayMenu.png";
+import CurrentSituation from "../../currentSituation";
 
 const Tab = () => {
   const [activetab, setActiveTab] = useState(0);
@@ -15,7 +10,7 @@ const Tab = () => {
 
   const tab = {
     0: <></>,
-    1: <></>,
+    1: <CurrentSituation />,
     2: <MenuPage />,
   };
 
@@ -62,6 +57,7 @@ const TabWrapper = styled.div`
   bottom: 0;
   width: 100%;
   display: flex;
+  background-color: white;
 `;
 
 const TabItem = styled.p`
