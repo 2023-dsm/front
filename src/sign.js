@@ -1,5 +1,4 @@
-import logo from "./logo.svg";
-import "./App.css";
+import "./sign.css";
 
 function App() {
   return <div className="App"></div>;
