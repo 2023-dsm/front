@@ -9,6 +9,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.1",
     "react-scripts": "^5.0.1",
+    "react-slick": "^0.29.0",
     "styled-components": "^6.0.2"
   },
   "scripts": {
@@ -36,6 +37,7 @@
     ]
   },
   "devDependencies": {
+    "slick-carousel": "^1.8.1",
     "web-vitals": "^3.3.2"
   }
 }
