@@ -1,5 +1,5 @@
 import "./user_sign.css";
-import gosu from "../src/assets/고수.png"
+import gosu from "../../assets/고수.png"
 
 function UserSign() {
   return (
