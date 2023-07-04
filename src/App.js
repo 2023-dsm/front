@@ -4,6 +4,7 @@ import Start from "./components/startt";
 function App() {
   return (
     <div className="ApP">
+      <Login />
       <Start />
     </div>
   );
