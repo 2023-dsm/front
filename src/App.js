@@ -1,11 +1,9 @@
-import Login from "./components/login";
-import Start from "./components/startt";
+import UserSign from "./user_sign";
 
 function App() {
   return (
-    <div className="ApP">
-      <Login />
-      <Start />
+    <div className='App'>
+      <UserSign/>
     </div>
   );
 }
