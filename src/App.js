@@ -4,6 +4,7 @@ import Start from "./components/startt";
 import Login from "./components/login";
 import Tab from "./components/common/tab";
 import WritePage from "../src/pages/WritePage";
+import MoreIntroPage from "../src/pages/MoreIntroPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/sign" element={<UserSign />}></Route>
           <Route path="/write" element={<WritePage />} />
+          <Route path="/more" element={<MoreIntroPage />} />
         </Routes>
       </BrowserRouter>
     </div>

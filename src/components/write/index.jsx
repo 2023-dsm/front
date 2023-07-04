@@ -76,7 +76,7 @@ const Write = () => {
         />
       </InputAreaContainer>
       <NextButton>
-        <input type="submit" />
+        <input type="submit" value={"작성하기"} />
       </NextButton>
     </Wrapper>
   );
