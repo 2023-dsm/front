@@ -23,7 +23,6 @@ const Wrapper = styled.div`
   .setting {
     display: flex;
     align-items: center;
-    margin-bottom: 14px;
 
     > h1 {
       margin: 0;
