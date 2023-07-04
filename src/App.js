@@ -1,9 +1,10 @@
 import Login from "./components/login";
+import Start from "./components/startt";
 
 function App() {
   return (
-    <div className="App">
-      <Login />
+    <div className="ApP">
+      <Start />
     </div>
   );
 }
