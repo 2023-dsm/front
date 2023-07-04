@@ -1,0 +1,39 @@
+.img {
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+}
+
+.pagename {
+  text-align: center;
+  font-size: 30px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.lg {
+  margin-top: 150px;
+  margin-left: 65px;
+  display: flex;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  background-color: #008000;
+  width: 240px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.sign {
+  text-align: center;
+  margin: 5px;
+  font-size: 14px;
+}
+
+.signin {
+  color: #008000;
+}

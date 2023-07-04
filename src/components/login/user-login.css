@@ -1,0 +1,44 @@
+.App {
+  margin: 100px 60px;
+}
+#logo {
+  width: 30px;
+}
+
+.login {
+  font-family: "noto Sans";
+  margin: 0;
+}
+
+p {
+  margin: 20px 0px 5px 0px;
+  font-size: 10px;
+}
+
+input {
+  width: 240px;
+  border-bottom: 0.5px solid #008000;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+placeholder {
+  color: #939393;
+  font-size: 12px;
+}
+
+button {
+  cursor: pointer;
+  margin-top: 250px;
+  border: none;
+  background-color: #008000;
+  color: #fff;
+  border-radius: 10px;
+  width: 240px;
+  height: 40px;
+}
+
+input:focus {
+  outline: none;
+}
