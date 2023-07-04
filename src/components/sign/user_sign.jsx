@@ -1,8 +1,10 @@
 import "./user_sign.css";
 import gosu from "../../assets/고수.png";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function UserSign() {
+  const navigate = useNavigate();
   const [signData, setSignData] = useState({
     name: "",
     phone_number: "",
@@ -25,6 +27,10 @@ function UserSign() {
       ...signData,
       gender: value,
     });
+  };
+
+  const onClickCancle = () => {
+    navigate("/");
   };
 
   return (
@@ -91,7 +97,9 @@ function UserSign() {
         placeholder="주소를 입력해주세요"
       />
       <div className="CU">
-        <div className="cancel-btn">취소</div>
+        <div onClick={onClickCancle} className="cancel-btn">
+          취소
+        </div>
         <div className="user-Sign-btn">회원가입</div>
       </div>
     </div>

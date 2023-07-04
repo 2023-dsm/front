@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import MenuPage from "../../../pages/menu";
 import CurrentSituation from "../../currentSituation";
+import CompanyList from "../../company/CompanyList";
 
 const Tab = () => {
   const [activetab, setActiveTab] = useState(0);
@@ -9,7 +10,7 @@ const Tab = () => {
   const tabtitle = ["채용 기업", "채용 현황", "메뉴"];
 
   const tab = {
-    0: <></>,
+    0: <CompanyList />,
     1: <CurrentSituation />,
     2: <MenuPage />,
   };
