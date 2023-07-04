@@ -18,7 +18,7 @@ function Login() {
       </div>
       <div className="login-button">
         <from>
-          <button type="submit">로그인</button>
+          <a href=""><button type="submit">로그인</button></a>
         </from>
       </div>
     </div>
