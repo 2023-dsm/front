@@ -23,6 +23,10 @@ function UserSign() {
         <input className="radio-width" type="radio" name="성별" />
         <p className="ps">남자</p>
       </div>
+      <p className="age">
+        <b>나이</b>
+      </p>
+      <input type="number" placeholder="나이를 입력해주세요"></input>
       <p className="adress">
         <b>주소</b>
       </p>

@@ -2,4 +2,8 @@
   margin: 35px 0px 25px 30px;
   display: flex;
   align-items: center;
+
+  > img {
+    margin-right: 5px;
+  }
 }
