@@ -1,13 +1,12 @@
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import PageOne from './assets/A.png';
-import PageTwo from './assets/B.png';
-import PageThree from './assets/C.png';
-import PageFore from './assets/D.png';
-import PageFive from './assets/E.png';
-
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import PageOne from "./assets/A.png";
+import PageTwo from "./assets/B.png";
+import PageThree from "./assets/C.png";
+import PageFore from "./assets/D.png";
+import PageFive from "./assets/E.png";
 
 const ImageSlider = () => {
   const settings = {
@@ -23,19 +22,19 @@ const ImageSlider = () => {
   return (
     <Slider {...settings}>
       <div>
-        <img src={PageOne}/>
+        <img src={PageOne} />
       </div>
       <div>
-        <img src={PageTwo}/>
+        <img src={PageTwo} />
       </div>
       <div>
-        <img src={PageThree}/>
+        <img src={PageThree} />
       </div>
       <div>
-        <img src={PageFore}/>
+        <img src={PageFore} />
       </div>
       <div>
-        <img src={PageFive}/>
+        <img src={PageFive} />
       </div>
     </Slider>
   );

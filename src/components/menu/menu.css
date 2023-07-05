@@ -1,4 +1,4 @@
-p {
+.mp {
   margin: 10px 0px;
   font-size: 16px;
 }
@@ -7,7 +7,7 @@ p {
   margin: 0px 30px;
 }
 
-.menu-a{
+.menu-a {
   color: #000;
 }
 

@@ -22,6 +22,10 @@ function Login() {
     navigate("/main");
   };
 
+  const Way = () => {
+    navigate("/next");
+  };
+
   return (
     <div className="App">
       <div className="Logo">
@@ -29,7 +33,7 @@ function Login() {
       </div>
       <div className="login">LOGIN</div>
       <div className="name">
-        <p>이름</p>
+        <p className="op">이름</p>
         <input
           name="name"
           onChange={onChange}
@@ -38,16 +42,21 @@ function Login() {
         />
       </div>
       <div className="tel">
-        <p>전화번호</p>
+        <p className="op">전화번호</p>
         <input
           name="phone_number"
           onChange={onChange}
           type="tel"
-          placeholder="전화번호를 입력해주세요"
+          placeholder="전화번호를 입력하세요"
         />
       </div>
+      <div className="use">
+        <button onClick={Way} type="submit" className="use">
+          사용 방법 보기
+        </button>
+      </div>
       <div className="login-button">
-        <button onClick={onClick} type="submit">
+        <button onClick={onClick} type="submit" className="loginin">
           로그인
         </button>
       </div>
