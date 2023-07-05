@@ -7,6 +7,10 @@ p {
   margin: 0px 30px;
 }
 
+.menu-a{
+  color: #000;
+}
+
 .paper {
   padding: 7px 0px 7px 10px;
   border: 1px solid #008000;

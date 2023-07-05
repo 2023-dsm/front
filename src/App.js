@@ -9,19 +9,19 @@ import NextPages from "./nextpages"
 
 function App() {
   return (
-    // <div className="main">
-    //   <BrowserRouter>
-    //     <Routes>
-    //       <Route path="/main" element={<Tab />} />
-    //       <Route path="/" element={<Start />}></Route>
-    //       <Route path="/login" element={<Login />}></Route>
-    //       <Route path="/sign" element={<UserSign />}></Route>
-    //       <Route path="/write" element={<WritePage />} />
-    //       <Route path="/more" element={<MoreIntroPage />} />
-    //     </Routes>
-    //   </BrowserRouter>
-    // </div>
-    <NextPages />
+    <div className="main">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/main" element={<Tab />} />
+          <Route path="/" element={<Start />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/sign" element={<UserSign />}></Route>
+          <Route path="/write" element={<WritePage />} />
+          <Route path="/more" element={<MoreIntroPage />} />
+          <Route path="/next" element={<NextPages />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
