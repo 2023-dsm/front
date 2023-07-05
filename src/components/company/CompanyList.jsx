@@ -1,15 +1,35 @@
 import styled from "styled-components";
 import Head from "../head/head";
 import CompanyItem from "./CompanyItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DropDown from "../common/dropdown/index";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const CompanyList = () => {
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState("PUBLIC");
+  const [data, setData] = useState([]);
 
   const handleDropdownChange = (option) => {
     setSelectedOption(option);
   };
+
+  useEffect(() => {
+    axios
+      .get(
+        `http://192.168.1.149:8080/recruitment/list?type=${selectedOption}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res.data.recruitment_list);
+        setData(res.data.recruitment_list);
+      });
+  }, [selectedOption]);
+
   return (
     <Wrapper>
       <Head />
@@ -18,7 +38,22 @@ const CompanyList = () => {
         <DropDown handleChange={handleDropdownChange} />
       </div>
       <CompanyListContainer>
-        <CompanyItem selectedOption={selectedOption} />
+        {Array.isArray(data) &&
+          data.map((item, idx) => (
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              to={`/more/${item.recruitment_id}`}
+            >
+              <CompanyItem
+                key={idx}
+                activity_type={item.activity_type}
+                company_name={item.company_name}
+                number={item.number}
+                work_area={item.work_area}
+                work_name={item.work_name}
+              />
+            </Link>
+          ))}
       </CompanyListContainer>
     </Wrapper>
   );

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import leftArrow from "../../assets/leftArrow.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Write = () => {
   const navigate = useNavigate();
@@ -10,6 +11,29 @@ const Write = () => {
     introduce: "",
     career: "",
   });
+  const [info, setInfo] = useState({
+    name: "",
+    age: 0,
+    sex: "",
+    phone_number: "",
+  });
+
+  useEffect(() => {
+    axios
+      .get(`http://192.168.1.149:8080/user/info`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+      })
+      .then((res) => {
+        setInfo({
+          age: res.data.age,
+          name: res.data.name,
+          phone_number: res.data.phone_number,
+          sex: res.data.sex,
+        });
+      });
+  }, []);
 
   const onChange = (e) => {
     const { value, name } = e.target;
@@ -21,6 +45,25 @@ const Write = () => {
 
   const onClickArrow = () => {
     navigate("/main");
+  };
+
+  const onClickResume = () => {
+    axios
+      .patch(
+        "http://192.168.1.149:8080/user/resume",
+        {
+          ...writeData,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+          },
+        }
+      )
+      .then(() => {
+        alert("이력서 작성에 성공하셨습니다.");
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -35,20 +78,20 @@ const Write = () => {
         <div className="a">
           <InfoContainer>
             <h1>이름</h1>
-            <p>김승진</p>
+            <p>{info.name}</p>
           </InfoContainer>
           <InfoContainer>
             <h1 style={{ marginBottom: "11px" }}>나이</h1>
-            <p style={{ marginBottom: "6px" }}>65</p>
+            <p style={{ marginBottom: "6px" }}>{info.age}</p>
           </InfoContainer>
           <InfoContainer>
             <h1>성별</h1>
-            <p>여성</p>
+            <p>{info.sex}</p>
           </InfoContainer>
         </div>
         <InfoContainer>
           <h1>전화번호</h1>
-          <p>82+01012345678</p>
+          <p>82+{info.phone_number}</p>
         </InfoContainer>
       </UserInfoContainer>
       <InputContainer>
@@ -76,7 +119,7 @@ const Write = () => {
         />
       </InputAreaContainer>
       <NextButton>
-        <input type="submit" value={"작성하기"} />
+        <input type="submit" value={"작성하기"} onClick={onClickResume} />
       </NextButton>
     </Wrapper>
   );

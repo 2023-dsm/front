@@ -1,12 +1,65 @@
 import styled from "styled-components";
 import leftArrow from "../../assets/leftArrow.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const MoreIntro = ({ company_name }) => {
+const MoreIntro = () => {
+  const [data, setData] = useState({
+    company_name: "",
+    detail_work_area: "",
+    job_description: "",
+    week_work_time: "",
+    month_work_time: "",
+    money: 0,
+    manager: "",
+    close_date: "",
+  });
   const navigate = useNavigate();
+
+  let { id } = useParams();
+  const ID = String(id);
+
+  useEffect(() => {
+    axios
+      .get(`http://192.168.1.149:8080/recruitment/detail/${ID}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+      })
+      .then((res) => {
+        setData({
+          company_name: res.data.company_name,
+          close_date: res.data.close_date,
+          detail_work_area: res.data.detail_work_area,
+          job_description: res.data.job_description,
+          manager: res.data.manager,
+          money: res.data.money,
+          month_work_time: res.data.month_work_time,
+          week_work_time: res.data.week_work_time,
+        });
+      });
+  }, []);
 
   const onClickArrow = () => {
     navigate("/main");
+  };
+
+  const onClickAdd = () => {
+    axios
+      .post(
+        `http://192.168.1.149:8080/employment/apply/${ID}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+          },
+        }
+      )
+      .then((res) => {
+        alert("지원에 성공하셨습니다.");
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -14,44 +67,41 @@ const MoreIntro = ({ company_name }) => {
       <Head>
         <div>
           <img onClick={onClickArrow} height={24} src={leftArrow} alt="<-" />
-          <p>대전교육청</p>
+          <p>{data.company_name}</p>
         </div>
       </Head>
       <InfoContainer>
         <h1>근무지역</h1>
-        <p>대덕소프트웨어마이스터고등학교</p>
+        <p>{data.detail_work_area}</p>
       </InfoContainer>
       <InfoContainer>
         <h1>직무내용</h1>
-        <p>
-          1.활동시간 : 1일3시간/월10일/월30시간 2.활 동 비 : 월 27만원
-          3.신청자격 : 만 65세 이상 기초연금수급자
-        </p>
+        <p>{data.job_description}</p>
       </InfoContainer>
       <TimeContainer>
         <InfoContainer>
           <h1>주근무시간</h1>
-          <p>주10일, 일 3시간</p>
+          <p>{data.week_work_time}</p>
         </InfoContainer>
         <InfoContainer>
           <h1>월근무시간</h1>
-          <p>30시간</p>
+          <p>{data.month_work_time}</p>
         </InfoContainer>
       </TimeContainer>
       <InfoContainer>
         <h1>임금액</h1>
-        <p>300,000원</p>
+        <p>{data.money}원</p>
       </InfoContainer>
       <InfoContainer>
         <h1>구인담당자</h1>
-        <p>성명: 김승진</p>
+        <p>성명: {data.manager}</p>
       </InfoContainer>
       <InfoContainer>
         <h1>접수 마감 일자</h1>
-        <p>2023-07-01</p>
+        <p>{data.close_date}</p>
       </InfoContainer>
       <NextButton>
-        <input type="submit" value={"지원하기"} />
+        <input onClick={onClickAdd} type="submit" value={"지원하기"} />
       </NextButton>
     </Wrapper>
   );

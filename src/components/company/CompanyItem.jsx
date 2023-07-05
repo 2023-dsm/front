@@ -1,19 +1,25 @@
 import styled from "styled-components";
 
-const CompanyItem = () => {
+const CompanyItem = ({
+  company_name,
+  work_area,
+  work_name,
+  number,
+  activity_type,
+}) => {
   return (
     <Wrapper>
       <CompanyInfoContainer>
         <div className="address">
-          <p>대전교육청</p>
+          <p>{company_name}</p>
           <p style={{ margin: "0px 0px 4px 0px" }}>|</p>
-          <p>유성구 장동</p>
+          <p>{work_area}</p>
         </div>
-        <p className="Job">학교 지킴이</p>
+        <p className="Job">{work_name}</p>
       </CompanyInfoContainer>
       <ActivityInfoContainer>
-        <p>공익활동</p>
-        <p>모집인원: 3</p>
+        <p>{activity_type}</p>
+        <p>모집인원: {number}</p>
       </ActivityInfoContainer>
     </Wrapper>
   );

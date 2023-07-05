@@ -13,11 +13,10 @@ const Dropdown = ({ handleChange }) => {
   return (
     <DropdownContainer>
       <select value={selectedOption} onChange={handleOptionChange}>
-        <option value="">전체</option>
         <option value="PUBLIC">공익활동</option>
         <option value="SOCIETY">사회서비스</option>
         <option value="MARKET">시장</option>
-        <option value="JOBINTRODUCTION">취업알선</option>
+        <option value="JOB_INTRODUCTION">취업알선</option>
         <option value="SENIOR">시니어 인턴</option>
       </select>
     </DropdownContainer>
