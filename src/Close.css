@@ -1,0 +1,9 @@
+.Close {
+  position: absolute;
+  z-index: 10;
+}
+
+.mom {
+  z-index: 0;
+  position: relative;
+}

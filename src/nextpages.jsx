@@ -7,6 +7,8 @@ import PageTwo from "./assets/B.png";
 import PageThree from "./assets/C.png";
 import PageFore from "./assets/D.png";
 import PageFive from "./assets/E.png";
+import Close from "./assets/close.png";
+import "./Close.css";
 
 const ImageSlider = () => {
   const settings = {
@@ -16,13 +18,15 @@ const ImageSlider = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+
     autoplay: false,
   };
 
   return (
     <Slider {...settings}>
       <div>
-        <img src={PageOne} />
+        <img src={Close} className="Close" />
+        <img src={PageOne} width="360px" height="640px" className="mom" />
       </div>
       <div>
         <img src={PageTwo} />
