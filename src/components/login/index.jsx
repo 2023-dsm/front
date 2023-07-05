@@ -33,7 +33,7 @@ function Login() {
       </div>
       <div className="login">LOGIN</div>
       <div className="name">
-        <p>이름</p>
+        <p className="op">이름</p>
         <input
           name="name"
           onChange={onChange}
@@ -42,7 +42,7 @@ function Login() {
         />
       </div>
       <div className="tel">
-        <p>전화번호</p>
+        <p className="op">전화번호</p>
         <input
           name="phone_number"
           onChange={onChange}

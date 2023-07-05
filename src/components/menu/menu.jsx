@@ -1,5 +1,6 @@
 import "./menu.css";
 import { useNavigate } from "react-router-dom";
+import Way from "../../nextpages";
 
 function Menu() {
   const navigate = useNavigate();
@@ -22,7 +23,9 @@ function Menu() {
         <p className="mp">
           <b>앱 사용 방법</b>
         </p>
-        <div className="how paper">고수들의 직장 사용 방법</div>
+        <a href="http://localhost:3000/next" className="menu-a">
+          <div className="how paper">고수들의 직장 사용 방법</div>
+        </a>
       </div>
     </div>
   );

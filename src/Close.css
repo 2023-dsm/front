@@ -1,0 +1,11 @@
+.Close {
+  position: absolute;
+  margin-left: 330px;
+  margin-top: 5px;
+}
+
+.mom {
+  margin: 15px 10px;
+  border-radius: 50px;
+  position: relative;
+}

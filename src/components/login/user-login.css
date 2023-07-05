@@ -10,8 +10,9 @@
   margin: 0;
 }
 
-p {
+.op {
   margin: 10px 0px 0px 0px;
+  font-size: 16px;
 }
 
 input {
@@ -23,7 +24,7 @@ input {
 }
 
 button.use {
-  margin-top: 250px;
+  margin-top: 200px;
   background-color: #fff;
   color: #008000;
   width: 240px;
