@@ -3,11 +3,21 @@ import styled from "styled-components";
 import MenuPage from "../../../pages/menu";
 import CurrentSituation from "../../currentSituation";
 import CompanyList from "../../company/CompanyList";
+import Company from "../../../assets/tab/company.png";
+import menu from "../../../assets/tab/menu.png";
+import people from "../../../assets/tab/people.png";
+import grayCompany from "../../../assets/tab/grayCompany.png";
+import grayMenu from "../../../assets/tab/grayMenu.png";
+import grayPeople from "../../../assets/tab/grayPeople.png";
 
 const Tab = () => {
   const [activetab, setActiveTab] = useState(0);
 
-  const tabtitle = ["채용 기업", "채용 현황", "메뉴"];
+  const tabtitle = [
+    { title: "채용 기업", onImg: Company, offImg: grayCompany },
+    { title: "채용 현황", onImg: people, offImg: grayPeople },
+    { title: "메뉴", onImg: menu, offImg: grayMenu },
+  ];
 
   const tab = {
     0: <CompanyList />,
@@ -22,31 +32,26 @@ const Tab = () => {
   return (
     <>
       <TabWrapper>
-        {tabtitle.map((title, idx) => {
+        {tabtitle.map((item, idx) => {
           return (
             <TabItem
               key={idx}
-              style={
-                activetab === idx
-                  ? {
-                      color: "#ffffff",
-                      borderColor: "#008000",
-                      borderWidth: "2px",
-                      height: "44.5px",
-                      background: "#008000",
-                    }
-                  : { color: "#000000" }
-              }
               onClick={() => {
                 onClickTab(idx);
               }}
             >
-              {title}
+              <img
+                style={{ margin: "5px 0px 0px 0px" }}
+                src={activetab === idx ? item.onImg : item.offImg}
+                alt=""
+              />
+              <p style={{ color: activetab === idx ? "#000000" : "#D9D9D9" }}>
+                {item.title}
+              </p>
             </TabItem>
           );
         })}
       </TabWrapper>
-      <></>
       {tab[activetab]}
     </>
   );
@@ -59,16 +64,26 @@ const TabWrapper = styled.div`
   width: 100%;
   display: flex;
   background-color: white;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
 `;
 
-const TabItem = styled.p`
+const TabItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0;
   flex: 1;
-  font-weight: 500;
-  text-align: center;
-  height: 44px;
+
+  > p {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    height: 30px;
+    font-weight: 500;
+  }
+  height: 60px;
   line-height: 44px;
-  border-top: 1px solid gray;
 `;
 
 export default Tab;
