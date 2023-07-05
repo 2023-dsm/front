@@ -2,6 +2,7 @@ import "./user-login.css";
 import gosu from "../../../src/assets/고수.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Login() {
   const navigate = useNavigate();
@@ -19,7 +20,17 @@ function Login() {
   };
 
   const onClick = () => {
-    navigate("/main");
+    axios
+      .post("http://192.168.1.149:8080/user/login", {
+        ...loginData,
+      })
+      .then((res) => {
+        console.log(res.data.access_token);
+        localStorage.setItem("access_token", res.data.access_token);
+        alert("로그인에 성공하셨습니다.");
+        navigate("/main");
+      })
+      .catch((err) => console.log(err));
   };
 
   const Way = () => {

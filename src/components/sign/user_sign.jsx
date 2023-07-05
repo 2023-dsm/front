@@ -2,16 +2,26 @@ import "./user_sign.css";
 import gosu from "../../assets/고수.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function UserSign() {
   const navigate = useNavigate();
   const [signData, setSignData] = useState({
     name: "",
     phone_number: "",
-    gender: "",
     age: 0,
     address: "",
+    sex: "남성",
   });
+
+  const onClick = () => {
+    console.log(signData);
+    axios
+      .post("http://192.168.1.149:8080/user/signup", {
+        ...signData,
+      })
+      .catch((err) => console.log(err));
+  };
 
   const onChange = (e) => {
     const { value, name } = e.target;
@@ -62,7 +72,7 @@ function UserSign() {
         <input
           className="radio-width"
           type="radio"
-          name="gender"
+          name="sex"
           value="여성"
           checked={signData.gender === "여성"}
           onChange={onGenderChange}
@@ -71,7 +81,7 @@ function UserSign() {
         <input
           className="radio-width"
           type="radio"
-          name="gender"
+          name="sex"
           value="남성"
           checked={signData.gender === "남성"}
           onChange={onGenderChange}
@@ -100,7 +110,9 @@ function UserSign() {
         <div onClick={onClickCancle} className="cancel-btn">
           취소
         </div>
-        <div className="user-Sign-btn">회원가입</div>
+        <div className="user-Sign-btn" onClick={onClick}>
+          회원가입
+        </div>
       </div>
     </div>
   );
