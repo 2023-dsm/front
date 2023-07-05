@@ -1,9 +1,11 @@
 .Close {
   position: absolute;
-  z-index: 10;
+  margin-left: 330px;
+  margin-top: 5px;
 }
 
 .mom {
-  z-index: 0;
+  margin: 15px 10px;
+  border-radius: 50px;
   position: relative;
 }
