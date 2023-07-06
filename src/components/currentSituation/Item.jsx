@@ -1,18 +1,18 @@
 import styled from "styled-components";
 
-const Item = () => {
+const Item = ({ company_name, work_area, work_name, status }) => {
   return (
     <Wrapper>
       <CompanyInfoContainer>
         <div className="address">
-          <p>대전교육청</p>
+          <p>{company_name}</p>
           <p style={{ margin: "0px 0px 4px 0px" }}>|</p>
-          <p>유성구 장동</p>
+          <p>{work_area}</p>
         </div>
-        <p className="Job">학교 지킴이</p>
+        <p className="Job">{work_name}</p>
       </CompanyInfoContainer>
       <StateContainer>
-        <p>진행중</p>
+        <p>{status === 0 ? "진행중" : "완료"}</p>
       </StateContainer>
     </Wrapper>
   );
