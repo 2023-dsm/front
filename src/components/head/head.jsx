@@ -8,7 +8,7 @@ function Head() {
 
   useEffect(() => {
     axios
-      .get(`http://192.168.1.149:8080/user/info`, {
+      .get(`http://192.168.0.25:8080/user/info`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },

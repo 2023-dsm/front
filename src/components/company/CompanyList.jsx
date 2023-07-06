@@ -16,14 +16,11 @@ const CompanyList = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `http://192.168.1.149:8080/recruitment/list?type=${selectedOption}`,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-          },
-        }
-      )
+      .get(`http://192.168.0.25:8080/recruitment/list?type=${selectedOption}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+      })
       .then((res) => {
         console.log(res.data.recruitment_list);
         setData(res.data.recruitment_list);

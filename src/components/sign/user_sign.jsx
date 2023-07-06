@@ -17,7 +17,7 @@ function UserSign() {
   const onClick = () => {
     console.log(signData);
     axios
-      .post("http://192.168.1.149:8080/user/signup", {
+      .post("http://192.168.0.25:8080/user/signup", {
         ...signData,
       })
       .catch((err) => console.log(err));
@@ -55,6 +55,7 @@ function UserSign() {
         onChange={onChange}
         type="text"
         placeholder="이름을 입력해주세요"
+        autoComplete="off"
       />
       <p className="font-grap">
         <b>전화번호</b>
@@ -64,6 +65,7 @@ function UserSign() {
         onChange={onChange}
         type="text"
         placeholder="전화번호를 입력해주세요"
+        autoComplete="off"
       />
       <p className="font-grap">
         <b>성별</b>
@@ -96,6 +98,7 @@ function UserSign() {
         onChange={onChange}
         type="number"
         placeholder="나이를 입력해주세요"
+        autoComplete="off"
       />
       <p className="adress">
         <b>주소</b>
@@ -105,6 +108,7 @@ function UserSign() {
         onChange={onChange}
         type="text"
         placeholder="주소를 입력해주세요"
+        autoComplete="off"
       />
       <div className="CU">
         <div onClick={onClickCancle} className="cancel-btn">
