@@ -20,7 +20,7 @@ const Write = () => {
 
   useEffect(() => {
     axios
-      .get(`http://192.168.1.149:8080/user/info`, {
+      .get(`http://192.168.0.25:8080/user/info`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
@@ -50,7 +50,7 @@ const Write = () => {
   const onClickResume = () => {
     axios
       .patch(
-        "http://192.168.1.149:8080/user/resume",
+        "http://192.168.0.25:8080/user/resume",
         {
           ...writeData,
         },

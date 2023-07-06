@@ -21,7 +21,7 @@ function Login() {
 
   const onClick = () => {
     axios
-      .post("http://192.168.1.149:8080/user/login", {
+      .post("http://192.168.0.25:8080/user/login", {
         ...loginData,
       })
       .then((res) => {
@@ -50,6 +50,7 @@ function Login() {
           onChange={onChange}
           type="text"
           placeholder="이름을 입력하세요"
+          autoComplete="off"
         />
       </div>
       <div className="tel">
@@ -59,6 +60,7 @@ function Login() {
           onChange={onChange}
           type="tel"
           placeholder="전화번호를 입력하세요"
+          autoComplete="off"
         />
       </div>
       <div className="use">
